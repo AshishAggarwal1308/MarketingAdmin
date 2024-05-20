@@ -6,15 +6,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
-const page = () => {
-  const router=useRouter()
+const Page = () => {
+  const Router=useRouter()
   const { data: session, status } = useSession();
   if (status === 'loading') {
     return <div>Loading...</div>;
   }
 
   if (status != 'authenticated') {
-    router.push("/api/auth/signin"); // Corrected typo
+    Router.push("/api/auth/signin"); // Corrected typo
   }
 
   return (
@@ -25,4 +25,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

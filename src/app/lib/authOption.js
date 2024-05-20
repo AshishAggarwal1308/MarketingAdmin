@@ -33,7 +33,7 @@ export const authOptions = {
     maxAge: 24 * 60 * 60, // Set session expiration to 24 hours (adjust as needed)
   },
   callbacks: {
-    async session({ token, session }:{token:any,session:any}) {
+    async session({ token, session }) {
       session.user.id = token.sub;
       return session;
     }
@@ -41,7 +41,7 @@ export const authOptions = {
 };
 
 // Function for secure password validation (replace with your implementation)
-async function validatePassword(password:any) {
+async function validatePassword(password) {
   // Hash the provided password and compare it to a securely stored hash
   // (e.g., using bcrypt or a similar library)
   const isValid = password===process.env.NEXTAUTH_PASSWORD
